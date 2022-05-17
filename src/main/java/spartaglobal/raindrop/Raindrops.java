@@ -1,6 +1,6 @@
 package spartaglobal.raindrop;
 
-public class Raindrop {
+public class Raindrops {
 
     /**
      * Takes an integer and converts it to a desired string based on if the integer has a factor of 3, 5 or 7

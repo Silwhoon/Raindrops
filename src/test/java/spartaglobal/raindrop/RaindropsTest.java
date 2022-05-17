@@ -11,14 +11,14 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-public class RaindropTest {
+public class RaindropsTest {
 
     // Simple test for numbers that have factors of 3, and not 5 or 7
     @ParameterizedTest
     @ValueSource(ints = {3, -3, 12, -57})
     public void factorOfThree(int input) {
         String expectedResult = "Pling";
-        String actualResult = Raindrop.convertNumber(input);
+        String actualResult = Raindrops.convertNumber(input);
 
         Assertions.assertEquals(expectedResult, actualResult);
     }
@@ -28,7 +28,7 @@ public class RaindropTest {
     @ValueSource(ints = {5, -5, 20, -80})
     public void factorOfFive(int input) {
         String expectedResult = "Plang";
-        String actualResult = Raindrop.convertNumber(input);
+        String actualResult = Raindrops.convertNumber(input);
 
         Assertions.assertEquals(expectedResult, actualResult);
     }
@@ -38,7 +38,7 @@ public class RaindropTest {
     @ValueSource(ints = {7, -7, 28, -77})
     public void factorOfSeven(int input) {
         String expectedResult = "Plong";
-        String actualResult = Raindrop.convertNumber(input);
+        String actualResult = Raindrops.convertNumber(input);
 
         Assertions.assertEquals(expectedResult, actualResult);
     }
@@ -48,7 +48,7 @@ public class RaindropTest {
     public void noSpecifiedFactors() {
         int input = 4;
         String expectedResult = "4";
-        String actualResult = Raindrop.convertNumber(input);
+        String actualResult = Raindrops.convertNumber(input);
 
         Assertions.assertEquals(expectedResult, actualResult);
     }
@@ -57,7 +57,7 @@ public class RaindropTest {
     @ParameterizedTest
     @MethodSource("multipleSpecifiedFactorsData")
     public void multipleSpecifiedFactors(int input, String expectedResult) {
-        String actualResult = Raindrop.convertNumber(input);
+        String actualResult = Raindrops.convertNumber(input);
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
