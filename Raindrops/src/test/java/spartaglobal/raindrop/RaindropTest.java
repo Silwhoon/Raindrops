@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
@@ -13,9 +14,9 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 public class RaindropTest {
 
     // Simple test for numbers that have factors of 3, and not 5 or 7
-    @Test
-    public void factorOfThree() {
-        int input = 3;
+    @ParameterizedTest
+    @ValueSource(ints = {3, -3, 12, -57})
+    public void factorOfThree(int input) {
         String expectedResult = "Pling";
         String actualResult = Raindrop.convertNumber(input);
 
@@ -23,9 +24,9 @@ public class RaindropTest {
     }
 
     // Simple test for numbers that have factors of 5, and not 3 or 7
-    @Test
-    public void factorOfFive() {
-        int input = 5;
+    @ParameterizedTest
+    @ValueSource(ints = {5, -5, 20, -80})
+    public void factorOfFive(int input) {
         String expectedResult = "Plang";
         String actualResult = Raindrop.convertNumber(input);
 
@@ -33,9 +34,9 @@ public class RaindropTest {
     }
 
     // Simple test for numbers that have factors of 7, and not 3 or 5
-    @Test
-    public void factorOfSeven() {
-        int input = 7;
+    @ParameterizedTest
+    @ValueSource(ints = {7, -7, 28, -77})
+    public void factorOfSeven(int input) {
         String expectedResult = "Plong";
         String actualResult = Raindrop.convertNumber(input);
 
@@ -68,5 +69,5 @@ public class RaindropTest {
                 arguments(105, "PlingPlangPlong")
         );
     }
-    
+
 }
