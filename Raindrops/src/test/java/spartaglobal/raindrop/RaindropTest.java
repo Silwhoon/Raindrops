@@ -1,3 +1,5 @@
+package spartaglobal.raindrop;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -42,4 +44,5 @@ public class RaindropTest {
 
         Assertions.assertEquals(expectedResult, actualResult);
     }
+    
 }
