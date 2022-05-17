@@ -2,6 +2,13 @@ package spartaglobal.raindrop;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class RaindropTest {
 
@@ -43,6 +50,23 @@ public class RaindropTest {
         String actualResult = Raindrop.convertNumber(input);
 
         Assertions.assertEquals(expectedResult, actualResult);
+    }
+
+    // Test for numbers that have two or more of the desired factors (3, 5 or 7)
+    @ParameterizedTest
+    @MethodSource("multipleSpecifiedFactorsData")
+    public void multipleSpecifiedFactors(int input, String expectedResult) {
+        String actualResult = Raindrop.convertNumber(input);
+        Assertions.assertEquals(expectedResult, actualResult);
+    }
+
+    private static Stream<Arguments> multipleSpecifiedFactorsData() {
+        return Stream.of(
+                arguments(15, "PlingPlang"),
+                arguments(21, "PlingPlong"),
+                arguments(35, "PlangPlong"),
+                arguments(105, "PlingPlangPlong")
+        );
     }
     
 }
