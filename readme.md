@@ -13,3 +13,11 @@ This project will take any integer input and return a string based on its value.
 - 28's factors are 1, 2, 4, 7, 14 and 28: this would return a simple 'Plong'
 - 30's factors are 1, 2, 3, 5, 6, 10, 15, 30: this would return a 'PlingPlang'
 - 34 has four factors: 1, 2, 17, and 34: this would return '34'
+
+## Mutation Testing
+![Mutation Coverage](https://gyazo.com/0a571cb556b9d6ae4b6cfc664f828399.png)
+Current tests include full line coverage - except a class that contains a statically
+called method which is unable & unnecessary to test. 
+
+To produce a report run the following command:
+`mvn test-compile org.pitest:pitest-maven:mutationCoverage` in your terminal.
